@@ -43,14 +43,14 @@ local Button = MainTab:CreateButton({
     Name = "Auto Green",
     Callback = function()
         -- The function that takes place when the button is pressed
-        loadstring(game:HttpGet("https://scriptblox.com/raw/PS5-Basketball-Legends-Legit-Auto-Green-Unbannable-8838"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/PunchMadeScript/Basketball-Legends/refs/heads/main/Auto%20perfect"))();
     end,
 })
 
 local Button = MainTab:CreateButton({
-    Name = "Reach",
+    Name = "Auto Guard",
     Callback = function()
         -- The function that takes place when the button is pressed
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/PunchMadeScript/Main-hitbox/refs/heads/main/Hitbox"))();
-    end,
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/PunchMadeScript/Basketball-Legends/refs/heads/main/Auto%20guard"))();
+     end,
 })
