@@ -1,0 +1,30 @@
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local player = Players.LocalPlayer
+
+local function trackPlayers()
+    local char = player.Character
+    local charHRP = char and char:FindFirstChild("HumanoidRootPart")
+
+    if char and charHRP then
+        for _, v in pairs(Players:GetPlayers()) do
+            if v ~= player and v.Character then
+                local vHRP = v.Character:FindFirstChild("HumanoidRootPart")
+                if vHRP and (vHRP.Position - charHRP.Position).Magnitude < 25 then
+                    if vHRP.Velocity.magnitude > 0.5 and v.Character:FindFirstChild("Basketball") then
+                        char.Humanoid:MoveTo(vHRP.Position + vHRP.Velocity.unit * 7)
+                    elseif vHRP.Velocity.magnitude < 0.5 and v.Character:FindFirstChild("Basketball") then
+                        local touchInput = game:GetService("UserInputService"):GetLastInputType()
+                        if touchInput == Enum.UserInputType.Touch then
+                            char.Humanoid:MoveTo(vHRP.Position)
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
+RunService.Heartbeat:Connect(function()
+    trackPlayers()
+end)
